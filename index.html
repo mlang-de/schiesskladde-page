@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schießkladde – Digitale Standaufsicht für Schützenvereine</title>
-  <meta name="description" content="Schießkladde ist eine Web-App für die digitale Standaufsicht in Schützenvereinen. AWaffV §24-konform, DSGVO-konform, On-Premise." />
+  <title>Schießkladde – Die digitale Schießkladde, die im Verein bleibt.</title>
+  <meta name="description" content="Digitale Standbelegung für Schützenvereine. Läuft komplett im Vereinsnetzwerk. Keine Cloud, keine Datenweitergabe. Einfach zu bedienen." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -12,22 +12,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy: #1a1a2e;
-      --navy-light: #2d2d4e;
-      --blue: #3b82f6;
-      --blue-light: #eff6ff;
-      --green: #059669;
+      --navy:        #1a2744;
+      --navy-light:  #253360;
+      --blue:        #2563b0;
+      --blue-light:  #eff6ff;
+      --green:       #1a7a4a;
       --green-light: #ecfdf5;
-      --amber: #d97706;
-      --amber-light: #fffbeb;
-      --text: #111827;
-      --text-muted: #6b7280;
-      --border: #e5e7eb;
-      --bg: #ffffff;
-      --bg-subtle: #f9fafb;
-      --radius: 12px;
-      --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
+      --text:        #1a1a1a;
+      --text-muted:  #555e6a;
+      --border:      #dde3ec;
+      --bg:          #ffffff;
+      --bg-subtle:   #f7f9fc;
+      --radius:      12px;
+      --shadow:      0 1px 4px rgba(0,0,0,.09);
+      --shadow-md:   0 4px 16px rgba(0,0,0,.10);
     }
 
     html { scroll-behavior: smooth; }
@@ -36,8 +34,8 @@
       font-family: 'Inter', system-ui, sans-serif;
       color: var(--text);
       background: var(--bg);
-      line-height: 1.6;
-      font-size: 16px;
+      line-height: 1.65;
+      font-size: 17px;
     }
 
     /* ─── NAV ─── */
@@ -45,7 +43,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,.95);
+      background: rgba(255,255,255,.97);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
     }
@@ -54,7 +52,7 @@
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 1.5rem;
-      height: 60px;
+      height: 62px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -62,19 +60,19 @@
 
     .nav-logo {
       font-weight: 800;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--navy);
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
     }
 
     .nav-logo-icon {
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       background: var(--navy);
-      border-radius: 7px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -84,40 +82,87 @@
       flex-shrink: 0;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
+    .nav-cta {
+      background: var(--navy);
+      color: #fff;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
       font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-muted);
       text-decoration: none;
-      transition: color .15s;
+      transition: opacity .15s;
     }
 
-    .nav-links a:hover { color: var(--navy); }
+    .nav-cta:hover { opacity: .85; }
+
+    /* ─── BUTTONS ─── */
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: opacity .15s, transform .1s;
+      cursor: pointer;
+    }
+
+    .btn:active { transform: scale(.98); }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-primary:hover { opacity: .87; }
+    .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
+    .btn-outline:hover { background: var(--bg-subtle); }
+    .btn-lg { padding: 1rem 2.25rem; font-size: 1.05rem; }
+
+    /* ─── LAYOUT ─── */
+    .section { padding: 5rem 1.5rem; }
+    .section-alt { background: var(--bg-subtle); }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .container-narrow { max-width: 780px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
 
     /* ─── HERO ─── */
     .hero {
-      background: linear-gradient(160deg, #fff 60%, #f0f4ff 100%);
-      padding: 5rem 1.5rem 4.5rem;
-      text-align: center;
+      background: linear-gradient(160deg, #f0f4fb 0%, #fff 55%);
+      padding: 5.5rem 1.5rem 5rem;
     }
 
-    .hero-inner { max-width: 760px; margin: 0 auto; }
+    .hero-inner { max-width: 840px; }
 
     .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--blue-light);
+      background: #e8f0fb;
       color: var(--blue);
       font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: .05em;
+      font-weight: 700;
+      letter-spacing: .06em;
       text-transform: uppercase;
       padding: 0.35rem 0.9rem;
       border-radius: 999px;
@@ -125,148 +170,38 @@
     }
 
     h1 {
-      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-size: clamp(2rem, 5vw, 3.4rem);
       font-weight: 800;
       color: var(--navy);
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
+      line-height: 1.13;
+      margin-bottom: 1.4rem;
+      max-width: 800px;
     }
 
     .hero-sub {
-      font-size: 1.125rem;
+      font-size: 1.2rem;
       color: var(--text-muted);
-      max-width: 560px;
-      margin: 0 auto 2.5rem;
+      max-width: 580px;
       line-height: 1.7;
+      margin-bottom: 2rem;
     }
 
-    .hero-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      justify-content: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.4rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      border: 1.5px solid;
-    }
-
-    .badge-green { background: var(--green-light); color: var(--green); border-color: #a7f3d0; }
-    .badge-blue  { background: var(--blue-light);  color: var(--blue);  border-color: #bfdbfe; }
-    .badge-amber { background: var(--amber-light); color: var(--amber); border-color: #fde68a; }
-    .badge-navy  { background: #eef0f8; color: var(--navy); border-color: #c7c9e0; }
-
-    .btn {
-      display: inline-block;
-      padding: 0.8rem 2rem;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: opacity .15s, transform .1s;
-    }
-
-    .btn:active { transform: scale(.98); }
-
-    .btn-primary {
-      background: var(--navy);
-      color: #fff;
-    }
-
-    .btn-primary:hover { opacity: .88; }
-
-    /* ─── SECTIONS ─── */
-    .section {
-      padding: 4.5rem 1.5rem;
-    }
-
-    .section-alt { background: var(--bg-subtle); }
-
-    .container { max-width: 1100px; margin: 0 auto; }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.6rem;
-    }
-
-    h2 {
-      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-      font-weight: 800;
-      color: var(--navy);
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-desc {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin-bottom: 3rem;
-    }
-
-    /* ─── AUDIENCE CARDS ─── */
-    .audience-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .audience-card {
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem;
-      box-shadow: var(--shadow);
-    }
-
-    .audience-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .audience-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.5rem;
-    }
-
-    .audience-card p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-    }
-
-    .audience-list {
-      margin-top: 0.75rem;
-      padding-left: 0;
+    .hero-bullets {
       list-style: none;
+      margin-bottom: 2.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.3rem;
+      gap: 0.55rem;
     }
 
-    .audience-list li {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      padding-left: 1.25rem;
+    .hero-bullets li {
+      font-size: 1rem;
+      color: var(--text);
+      padding-left: 1.6rem;
       position: relative;
     }
 
-    .audience-list li::before {
+    .hero-bullets li::before {
       content: '✓';
       position: absolute;
       left: 0;
@@ -274,297 +209,311 @@
       font-weight: 700;
     }
 
-    /* ─── FEATURE GRID ─── */
-    .feature-grid {
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      align-items: center;
+    }
+
+    .hero-note {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    /* ─── PROBLEM ─── */
+    .problem-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 1.25rem;
     }
 
-    .feature-card {
+    .problem-card {
       background: var(--bg);
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
       padding: 1.5rem;
       box-shadow: var(--shadow);
-      transition: box-shadow .15s, border-color .15s;
     }
 
-    .feature-card:hover {
-      box-shadow: var(--shadow-md);
-      border-color: #c7c9e0;
-    }
+    .problem-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
 
-    .feature-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: var(--blue-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-
-    .feature-card h3 {
+    .problem-card h3 {
       font-size: 0.95rem;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 0.4rem;
     }
 
-    .feature-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
+    .problem-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
 
-    /* ─── COMPLIANCE ─── */
-    .compliance-grid {
+    /* ─── LÖSUNG ─── */
+    .solution-steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
     }
 
-    .compliance-card {
-      border-radius: var(--radius);
-      padding: 2rem;
-      border: 1.5px solid;
-    }
+    .solution-step { display: flex; gap: 1.1rem; align-items: flex-start; }
 
-    .compliance-card.awaffv {
-      background: var(--green-light);
-      border-color: #a7f3d0;
-    }
-
-    .compliance-card.dsgvo {
-      background: var(--blue-light);
-      border-color: #bfdbfe;
-    }
-
-    .compliance-heading {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .compliance-badge {
-      font-size: 0.7rem;
-      font-weight: 800;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.7rem;
-      border-radius: 6px;
-    }
-
-    .awaffv .compliance-badge { background: var(--green); color: #fff; }
-    .dsgvo .compliance-badge  { background: var(--blue);  color: #fff; }
-
-    .compliance-heading h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .compliance-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .compliance-list li {
-      font-size: 0.88rem;
-      color: #374151;
-      padding-left: 1.35rem;
-      position: relative;
-      line-height: 1.5;
-    }
-
-    .compliance-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      font-weight: 700;
-    }
-
-    .awaffv .compliance-list li::before { color: var(--green); }
-    .dsgvo  .compliance-list li::before { color: var(--blue);  }
-
-    /* ─── TECH STACK ─── */
-    .stack-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-bottom: 3rem;
-    }
-
-    .stack-badge {
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: 8px;
-      padding: 0.4rem 0.85rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--text);
-      box-shadow: var(--shadow);
-    }
-
-    /* ─── PIPELINE ─── */
-    .pipeline-wrapper {
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: var(--shadow);
-      margin-bottom: 2rem;
-    }
-
-    .pipeline-title {
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .pipeline-flow {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .pipeline-step {
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
       background: var(--navy);
       color: #fff;
-      border-radius: 8px;
-      padding: 0.55rem 1rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      white-space: nowrap;
-    }
-
-    .pipeline-step.red    { background: #dc2626; }
-    .pipeline-step.amber  { background: #d97706; }
-    .pipeline-step.blue   { background: #2563eb; }
-    .pipeline-step.green  { background: var(--green); }
-    .pipeline-step.teal   { background: #0891b2; }
-    .pipeline-step.purple { background: #7c3aed; }
-
-    .pipeline-arrow {
-      color: var(--text-muted);
+      font-weight: 800;
       font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
 
-    .pipeline-details {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
+    .solution-step h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
+    .solution-step p  { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── VERGLEICH ─── */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
       margin-top: 1.5rem;
     }
 
-    .pipeline-detail {
-      padding: 1rem;
-      background: var(--bg-subtle);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    .pipeline-detail-label {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      margin-bottom: 0.4rem;
-    }
-
-    .pipeline-detail-label.red    { color: #dc2626; }
-    .pipeline-detail-label.amber  { color: #d97706; }
-    .pipeline-detail-label.blue   { color: #2563eb; }
-    .pipeline-detail-label.green  { color: var(--green); }
-    .pipeline-detail-label.teal   { color: #0891b2; }
-    .pipeline-detail-label.purple { color: #7c3aed; }
-
-    .pipeline-detail p {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-    }
-
-    /* ─── DEPLOYMENT ─── */
-    .deploy-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-
-    .deploy-card {
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem 1.5rem;
-      box-shadow: var(--shadow);
-    }
-
-    .deploy-card h4 {
-      font-size: 0.8rem;
+    .compare-table th {
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.85rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: .06em;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
     }
 
-    .deploy-card p {
-      font-size: 0.88rem;
-      color: var(--text);
-      font-weight: 500;
+    .compare-table th:first-child { background: #f0f4fb; color: var(--text-muted); }
+    .compare-table th.col-other   { background: #f5f5f5; color: #888; }
+    .compare-table th.col-sk      { background: var(--navy); color: #fff; }
+
+    .compare-table td {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.92rem;
+      border-top: 1px solid var(--border);
     }
 
-    /* ─── FOOTER ─── */
-    footer {
+    .compare-table tr:nth-child(even) td            { background: #fafbfd; }
+    .compare-table tr:nth-child(even) td.col-sk-val { background: #f0f6ff; }
+    .compare-table td.col-sk-val    { color: var(--navy); font-weight: 600; }
+    .compare-table td.col-other-val { color: #999; }
+    .check-yes { color: var(--green); font-weight: 700; }
+    .check-no  { color: #c00; font-weight: 700; }
+
+    /* ─── BOX ─── */
+    .box-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin: 2rem 0;
+    }
+
+    .box-step {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1.25rem;
+      box-shadow: var(--shadow);
+    }
+
+    .box-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
       background: var(--navy);
-      color: rgba(255,255,255,.6);
-      padding: 3rem 1.5rem;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .box-step span { font-size: 0.92rem; font-weight: 600; color: var(--navy); }
+    .box-arrow     { color: var(--text-muted); font-size: 1.1rem; }
+
+    .box-highlight {
+      background: var(--green-light);
+      border: 1.5px solid #a7f3d0;
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .box-highlight p { font-size: 0.95rem; color: var(--green); font-weight: 600; line-height: 1.5; }
+
+    .box-extras {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .box-extra {
+      background: var(--bg-subtle);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .box-extra-title { font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; font-size: 0.95rem; }
+    .box-extra p     { font-size: 0.86rem; color: var(--text-muted); line-height: 1.55; }
+
+    /* ─── VERTRAUEN ─── */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .trust-card {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
       text-align: center;
     }
 
-    .footer-logo {
-      font-size: 1.1rem;
-      font-weight: 800;
+    .trust-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .trust-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .trust-card p  { font-size: 0.86rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ─── PREISE ─── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      align-items: start;
+    }
+
+    .pricing-card {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      background: var(--bg);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .pricing-card.featured { border-color: var(--navy); box-shadow: var(--shadow-md); }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--navy);
       color: #fff;
-      margin-bottom: 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.8rem;
+      border-radius: 999px;
+      white-space: nowrap;
     }
 
-    footer p {
-      font-size: 0.875rem;
-      margin-bottom: 0.4rem;
+    .pricing-card h3    { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.4rem; }
+    .pricing-desc       { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; line-height: 1.5; }
+    .pricing-price      { font-size: 2.1rem; font-weight: 800; color: var(--navy); margin-bottom: 0.25rem; }
+    .pricing-price span { font-size: 1rem; font-weight: 500; color: var(--text-muted); }
+    .pricing-note       { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+
+    .pricing-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1.5rem;
     }
 
-    footer a {
-      color: rgba(255,255,255,.85);
+    .pricing-list li {
+      font-size: 0.88rem;
+      color: var(--text);
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .pricing-list li::before { content: '✓'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+
+    .pricing-cta {
+      display: block;
+      text-align: center;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.9rem;
       text-decoration: none;
+      transition: opacity .15s;
     }
 
+    .pricing-cta-primary { background: var(--navy); color: #fff; }
+    .pricing-cta-primary:hover { opacity: .87; }
+    .pricing-cta-outline { border: 2px solid var(--navy); color: var(--navy); }
+    .pricing-cta-outline:hover { background: var(--bg-subtle); }
+
+    /* ─── FINALER CTA ─── */
+    .final-cta {
+      background: var(--navy);
+      padding: 5rem 1.5rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .final-cta h2   { color: #fff; }
+    .final-cta .lead { color: rgba(255,255,255,.75); margin: 0 auto 2rem; }
+    .final-cta .btn-outline { color: #fff; border-color: rgba(255,255,255,.5); }
+    .final-cta .btn-outline:hover { background: rgba(255,255,255,.1); }
+
+    .final-actions { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #111827;
+      color: rgba(255,255,255,.5);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    footer p   { font-size: 0.85rem; margin-bottom: 0.3rem; }
+    footer a   { color: rgba(255,255,255,.75); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
 
     .footer-divider {
       border: none;
-      border-top: 1px solid rgba(255,255,255,.12);
-      margin: 1.5rem auto;
+      border-top: 1px solid rgba(255,255,255,.1);
+      margin: 1.25rem auto;
       max-width: 400px;
     }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 640px) {
-      .nav-links { display: none; }
-      .pipeline-flow { flex-direction: column; align-items: flex-start; }
-      .pipeline-arrow { transform: rotate(90deg); }
+      .hero  { padding: 3.5rem 1.25rem 3rem; }
+      .section { padding: 3.5rem 1.25rem; }
+      .box-steps { flex-direction: column; align-items: flex-start; }
+      .box-arrow { transform: rotate(90deg); }
+      .compare-table { font-size: 0.82rem; }
+      .compare-table th, .compare-table td { padding: 0.65rem 0.75rem; }
     }
   </style>
 </head>
@@ -577,321 +526,363 @@
       <span class="nav-logo-icon">SK</span>
       Schießkladde
     </a>
-    <ul class="nav-links">
-      <li><a href="#funktionen">Funktionen</a></li>
-      <li><a href="#compliance">Compliance</a></li>
-      <li><a href="#technik">Technik</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
+    <a href="#demo" class="nav-cta">Demo anfragen</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ═══════════════════════════════════════════════════════════
+     1. HERO
+════════════════════════════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-eyebrow">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><circle cx="6" cy="6" r="6"/></svg>
-      Web-App für Schützenvereine
-    </span>
-    <h1>Digitale Standaufsicht,<br/>die das Recht kennt</h1>
+    <span class="hero-eyebrow">Für Schützenvereine in Deutschland</span>
+    <h1>Die digitale Schießkladde,<br/>die im Verein bleibt.</h1>
     <p class="hero-sub">
-      Schießkladde ersetzt Papierkladde und manuelle Bahneinteilung durch eine moderne Web-App — live, rechtskonform und ohne Cloud-Abhängigkeit.
+      Sehen Sie jederzeit, welcher Stand frei ist — ohne Papierliste, ohne Cloud, ohne Datenweitergabe.
+      Einfach anschließen und loslegen.
     </p>
-    <div class="hero-badges">
-      <span class="badge badge-green">✓ AWaffV §24-konform</span>
-      <span class="badge badge-blue">✓ DSGVO-konform</span>
-      <span class="badge badge-navy">✓ On-Premise</span>
-      <span class="badge badge-amber">✓ RFID-fähig</span>
+    <ul class="hero-bullets">
+      <li>Alle Ihre Daten bleiben im Vereinsnetzwerk — kein Zugriff von außen.</li>
+      <li>Freie und belegte Stände auf einen Blick, in Echtzeit.</li>
+      <li>Bedienbar auf jedem Tablet oder PC — ohne Schulung.</li>
+    </ul>
+    <div class="hero-actions">
+      <a href="#demo" class="btn btn-primary btn-lg">Demo anfragen</a>
+      <a href="#preise" class="btn btn-outline btn-lg">Preise ansehen</a>
     </div>
-    <a href="#funktionen" class="btn btn-primary">Funktionen entdecken</a>
+    <p class="hero-note">Kein Abo. Einmal kaufen, dauerhaft nutzen.</p>
   </div>
 </section>
 
-<!-- FÜR WEN -->
-<section class="section section-alt" id="zielgruppe">
+<!-- ═══════════════════════════════════════════════════════════
+     2. PROBLEM
+════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="problem">
   <div class="container">
-    <p class="section-label">Zielgruppe</p>
-    <h2>Für wen ist Schießkladde?</h2>
-    <p class="section-desc">Ob Vorstand, Aufsicht oder Mitglied — jede Rolle profitiert anders.</p>
-    <div class="audience-grid">
-
-      <div class="audience-card">
-        <div class="audience-icon">🏛️</div>
-        <h3>Schützenmeister &amp; Vorstand</h3>
-        <p>Behalten Sie den Überblick über Belegung, Schussbuch und Ausrüstung — jederzeit und von jedem Gerät im Vereinsnetz.</p>
-        <ul class="audience-list">
-          <li>Auswertungen, Excel- &amp; PDF-Export</li>
-          <li>CSV-Massenimport für Mitglieder</li>
-          <li>Benutzerverwaltung mit Rollenrechten</li>
-          <li>Automatische Datenbank-Backups</li>
-          <li>Datenschutz &amp; Lösch­protokoll</li>
-          <li>Konfigurierbare Aufbewahrungsfristen</li>
-        </ul>
+    <span class="section-label">Das kennen Sie</span>
+    <h2>Papierlisten, Chaos am Stand,<br/>kein Überblick.</h2>
+    <p class="lead">
+      Viele Vereine kämpfen täglich mit denselben Problemen. Nichts davon ist Ihre Schuld —
+      es gab einfach kein passendes Werkzeug.
+    </p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-icon">📋</div>
+        <h3>Die Liste liegt irgendwo</h3>
+        <p>Wer schießt gerade auf welchem Stand? In der Hektik weiß das niemand genau. Die Liste ist veraltet, sobald sie geschrieben ist.</p>
       </div>
-
-      <div class="audience-card">
-        <div class="audience-icon">👮</div>
-        <h3>Standaufsicht</h3>
-        <p>Schnell, klar, sicher: Schützen anmelden, Bahnen zuweisen, Schussbuch automatisch erstellen lassen.</p>
-        <ul class="audience-list">
-          <li>Echtzeit-Dashboard aller Bahnen</li>
-          <li>Schützensuche in Sekunden</li>
-          <li>Ausrüstungsverleih mit einem Klick</li>
-          <li>RFID-Selbst-Check-out für erfahrene Mitglieder</li>
-        </ul>
+      <div class="problem-card">
+        <div class="problem-icon">🔀</div>
+        <h3>Doppelbelegungen und Streit</h3>
+        <p>Zwei Schützen, ein Stand. Wer hat Vorrang? Solche Diskussionen kosten Zeit und Nerven — und passieren vermeidbar.</p>
       </div>
-
-      <div class="audience-card">
-        <div class="audience-icon">🎯</div>
-        <h3>Schützinnen &amp; Schützen</h3>
-        <p>Weniger Wartezeit an der Aufsicht, schnellere An- und Abmeldung — besonders mit RFID-Karte.</p>
-        <ul class="audience-list">
-          <li>Kein Papierkram mehr</li>
-          <li>Sofortige Bahnenfreigabe via RFID</li>
-          <li>Klare Rückmeldung bei belegten Bahnen</li>
-        </ul>
+      <div class="problem-card">
+        <div class="problem-icon">📂</div>
+        <h3>Nachweise auf Abruf? Fehlanzeige.</h3>
+        <p>Kontrolleure kommen, Sie suchen Unterlagen. Das Schussbuch ist unvollständig oder schwer lesbar. Das muss nicht sein.</p>
       </div>
-
+      <div class="problem-card">
+        <div class="problem-icon">🌐</div>
+        <h3>Cloud-Lösungen? Zu riskant.</h3>
+        <p>Sie geben sensible Mitgliederdaten in eine fremde Software. Wer speichert was, wo, wie lange? Das bleibt unklar.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FUNKTIONEN -->
-<section class="section" id="funktionen">
+<!-- ═══════════════════════════════════════════════════════════
+     3. LÖSUNG
+════════════════════════════════════════════════════════════ -->
+<section class="section" id="loesung">
   <div class="container">
-    <p class="section-label">Funktionen</p>
-    <h2>Was Schießkladde kann</h2>
-    <p class="section-desc">Alle Kernfunktionen einer modernen Standverwaltung — ohne Bloat, ohne Cloud.</p>
-    <div class="feature-grid">
-
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <h3>Echtzeit-Dashboard</h3>
-        <p>Live-Übersicht aller Bahnen: frei, belegt, Wartung oder defekt. Aktuell ohne Seitenreload.</p>
+    <span class="section-label">Die Lösung</span>
+    <h2>Live sehen, was am Stand passiert.<br/>Ohne Aufwand, ohne Cloud.</h2>
+    <p class="lead">
+      Schießkladde zeigt in Echtzeit, welche Stände frei, belegt oder gesperrt sind.
+      Jeder Eintrag ins Schussbuch passiert automatisch — kein Tippen, kein Übertragen.
+    </p>
+    <div class="solution-steps">
+      <div class="solution-step">
+        <div class="step-number">1</div>
+        <div>
+          <h3>Schütze meldet sich an</h3>
+          <p>Name auswählen oder RFID-Karte ans Lesegerät halten. Fertig. Der Stand ist belegt, das Schussbuch führt sich selbst.</p>
+        </div>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📋</div>
-        <h3>Schussbuch §24 AWaffV</h3>
-        <p>Automatische Erstellung bei Bahnenfreigabe. Einträge sind unveränderlich; Stornierung nur mit Begründung und Protokoll.</p>
+      <div class="solution-step">
+        <div class="step-number">2</div>
+        <div>
+          <h3>Standaufsicht hat den Überblick</h3>
+          <p>Auf dem Bildschirm sieht die Aufsicht alle Stände auf einen Blick: wer schießt, wie lange, auf welchem Stand.</p>
+        </div>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🎽</div>
-        <h3>Ausrüstungsverwaltung</h3>
-        <p>Verleih und Rückgabe von Waffen, Gehörschutz, Schutzbrillen u.&nbsp;v.&nbsp;m. — vollständig dokumentiert.</p>
+      <div class="solution-step">
+        <div class="step-number">3</div>
+        <div>
+          <h3>Schussbuch führt sich selbst</h3>
+          <p>Jede Standbelegung wird automatisch dokumentiert. §24 AWaffV ist erfüllt — ohne Papierkram, ohne Nacharbeit.</p>
+        </div>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📶</div>
-        <h3>RFID-Check-in/out</h3>
-        <p>Schütze hält Karte ans Lesegerät → Bahn wird freigegeben. Keine Aufsicht nötig für den Abmeldevorgang.</p>
+      <div class="solution-step">
+        <div class="step-number">4</div>
+        <div>
+          <h3>Alles bleibt im Verein</h3>
+          <p>Die Software läuft auf einem kleinen PC in Ihrem Netzwerk. Keine Internetverbindung nötig, keine fremden Server.</p>
+        </div>
       </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🔐</div>
-        <h3>Rollenverwaltung</h3>
-        <p>Admin, Aufsicht, Betrachter — mit fein­granulierten Berechtigungen, die der Vorstand selbst konfiguriert.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Hardware-Integration</h3>
-        <p>Schaltaktoren steuern Bahnenbeleuchtung oder -strom automatisch — über generisches HTTP-REST (jedes kompatible Gerät) oder ANEL NET-PwrCtrl UDP-Protokoll, pro Bahn konfigurierbar.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📈</div>
-        <h3>Statistiken &amp; Export</h3>
-        <p>Auslastungsanalysen, Belegungsgrafiken, Schussbuch als Excel-Datei exportierbar.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">❓</div>
-        <h3>Eingebautes Hilfesystem</h3>
-        <p>Kontextsensitive Anleitungen direkt in der App — kein externes Wiki, keine PDF-Bedienungsanleitung nötig.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📥</div>
-        <h3>CSV-Mitgliederimport</h3>
-        <p>Schützen-Profile per CSV-Upload in Bulk anlegen — mit Duplikat-Erkennung, Vorschau und Import-Bericht.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">📤</div>
-        <h3>Täglicher Export</h3>
-        <p>Automatischer CSV- und PDF-Export der Schießkladde — per systemd-Timer (23:55 Uhr) oder manuell aus der Admin-UI.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🗄️</div>
-        <h3>Datenbank-Backup</h3>
-        <p>Automatische PostgreSQL-Backups (täglich + nach jedem neuen Eintrag) mit manuellem Trigger, konfigurierbarer Retention und Restore-Skript.</p>
-      </div>
-
     </div>
   </div>
 </section>
 
-<!-- COMPLIANCE -->
-<section class="section section-alt" id="compliance">
+<!-- ═══════════════════════════════════════════════════════════
+     4. DIFFERENZIERUNG
+════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="vergleich">
   <div class="container">
-    <p class="section-label">Rechtliches</p>
-    <h2>Compliance eingebaut</h2>
-    <p class="section-desc">Kein Nachdenken nötig — die App hält die gesetzlichen Vorgaben automatisch ein.</p>
-    <div class="compliance-grid">
+    <span class="section-label">Der Unterschied</span>
+    <h2>Warum nicht einfach eine<br/>Cloud-Lösung nehmen?</h2>
+    <p class="lead">
+      Es gibt andere Software. Aber die meisten sind für Sportanlagen oder Hotels gebaut —
+      nicht für Schützenvereine. Und fast alle speichern Ihre Daten auf fremden Servern.
+    </p>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-other">Typische Cloud-Lösung</th>
+          <th class="col-sk">Schießkladde</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Datenspeicherung</td>
+          <td class="col-other-val">Auf fremden Servern</td>
+          <td class="col-sk-val">Nur bei Ihnen im Verein</td>
+        </tr>
+        <tr>
+          <td>Internetverbindung nötig?</td>
+          <td class="col-other-val"><span class="check-no">Ja</span> — fällt Internet aus, geht nichts</td>
+          <td class="col-sk-val"><span class="check-yes">Nein</span> — funktioniert komplett offline</td>
+        </tr>
+        <tr>
+          <td>Wer sieht Ihre Daten?</td>
+          <td class="col-other-val">Anbieter, ggf. Dritte</td>
+          <td class="col-sk-val">Nur Ihr Verein</td>
+        </tr>
+        <tr>
+          <td>Live-Standbelegung</td>
+          <td class="col-other-val">Meist nur Buchung, keine Realzeit</td>
+          <td class="col-sk-val">Echtzeit — was wirklich passiert</td>
+        </tr>
+        <tr>
+          <td>Kosten</td>
+          <td class="col-other-val">Monatliches Abo, steigt mit Zeit</td>
+          <td class="col-sk-val">Einmalig zahlen, dauerhaft nutzen</td>
+        </tr>
+        <tr>
+          <td>Einrichtung</td>
+          <td class="col-other-val">Schulungen, Konfiguration, Support</td>
+          <td class="col-sk-val">Anschließen und starten</td>
+        </tr>
+        <tr>
+          <td>§24 AWaffV-Nachweis</td>
+          <td class="col-other-val">Manuell oder nicht vorgesehen</td>
+          <td class="col-sk-val">Automatisch bei jeder Standbelegung</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
 
-      <div class="compliance-card awaffv">
-        <div class="compliance-heading">
-          <span class="compliance-badge">AWaffV §24</span>
-          <h3>Schusswaffen­rechtliches Schussbuch</h3>
-        </div>
-        <ul class="compliance-list">
-          <li>Schussbucheinträge werden automatisch beim Verlassen der Bahn erzeugt</li>
-          <li>Keine physische Löschung — nur Stornierung mit Begründung und Benutzerprotokoll</li>
-          <li>Mindestaufbewahrung 5 Jahre (konfigurierbar, nie unterschreitbar)</li>
-          <li>Vollständige Erfassung: Name, Geburtsdatum, Datum, Uhrzeit, Waffe, Kaliber, Bahn</li>
-          <li>Anonymisierung nach konfigurierbarer Frist mit Admin-Bestätigung</li>
-        </ul>
+<!-- ═══════════════════════════════════════════════════════════
+     5. PRODUKT — DIE BOX
+════════════════════════════════════════════════════════════ -->
+<section class="section" id="produkt">
+  <div class="container-narrow">
+    <span class="section-label">Plug &amp; Play</span>
+    <h2>Die Schießkladde-Box.<br/>Einmal anschließen, fertig.</h2>
+    <p class="lead">
+      Sie müssen kein IT-Experte sein. Die Box kommt fertig konfiguriert.
+      Sie stecken drei Kabel ein — und können sofort loslegen.
+    </p>
+    <div class="box-steps">
+      <div class="box-step">
+        <div class="box-step-num">1</div>
+        <span>Strom anschließen</span>
       </div>
-
-      <div class="compliance-card dsgvo">
-        <div class="compliance-heading">
-          <span class="compliance-badge">DSGVO</span>
-          <h3>Datenschutz­grundverordnung</h3>
-        </div>
-        <ul class="compliance-list">
-          <li>Ausschließlich On-Premise — keine Daten verlassen das Vereinsnetz</li>
-          <li>Kein Cloud-Dienst, keine externen Analysetools, kein Tracking</li>
-          <li>Rollenbasierter Zugriff — Daten nur für berechtigte Benutzer sichtbar</li>
-          <li>Passwörter bcrypt-gehasht, keine Klartextspeicherung</li>
-          <li>Vollständiges Aktivitätsprotokoll aller Admin- und Aufsichtshandlungen</li>
-          <li>Konfigurierbare Lösch- und Anonymisierungsfristen</li>
-        </ul>
+      <div class="box-arrow">→</div>
+      <div class="box-step">
+        <div class="box-step-num">2</div>
+        <span>Netzwerkkabel einstecken</span>
       </div>
-
+      <div class="box-arrow">→</div>
+      <div class="box-step">
+        <div class="box-step-num">3</div>
+        <span>Browser öffnen, loslegen</span>
+      </div>
+    </div>
+    <div class="box-highlight">
+      <span style="font-size:1.75rem; flex-shrink:0;">✅</span>
+      <p>
+        Kein Techniker nötig. Kein IT-Wissen erforderlich.<br/>
+        Wir richten alles vor — Sie schließen es nur an.
+      </p>
+    </div>
+    <div class="box-extras">
+      <div class="box-extra">
+        <div class="box-extra-title">Tablet als Anzeige</div>
+        <p>Jedes Tablet oder PC im WLAN zeigt die Standübersicht — ohne App-Installation.</p>
+      </div>
+      <div class="box-extra">
+        <div class="box-extra-title">RFID-Karten optional</div>
+        <p>Schützen können sich per Karte selbst anmelden. Kein Eingriff der Aufsicht nötig.</p>
+      </div>
+      <div class="box-extra">
+        <div class="box-extra-title">Automatische Backups</div>
+        <p>Ihre Daten werden täglich gesichert. Kein Datenverlust bei einem Geräteausfall.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TECHNIK -->
-<section class="section" id="technik">
+<!-- ═══════════════════════════════════════════════════════════
+     6. VERTRAUEN
+════════════════════════════════════════════════════════════ -->
+<section class="section section-alt" id="vertrauen">
   <div class="container">
-    <p class="section-label">Für technisch Versierte</p>
-    <h2>Kein Billo-Webprojekt</h2>
-    <p class="section-desc">Moderne Abhängigkeiten, strenge CI/CD-Checks und eine produktionsreife Deployment-Architektur.</p>
-
-    <!-- Stack -->
-    <div style="margin-bottom: 2.5rem;">
-      <p style="font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:1rem;">Tech Stack</p>
-      <div class="stack-badges">
-        <span class="stack-badge">Next.js 16</span>
-        <span class="stack-badge">React 19</span>
-        <span class="stack-badge">TypeScript 5</span>
-        <span class="stack-badge">TailwindCSS 4</span>
-        <span class="stack-badge">shadcn/ui</span>
-        <span class="stack-badge">Prisma 7</span>
-        <span class="stack-badge">PostgreSQL</span>
-        <span class="stack-badge">next-auth v5</span>
-        <span class="stack-badge">Zod 4</span>
-        <span class="stack-badge">React Hook Form</span>
-        <span class="stack-badge">SWR</span>
-        <span class="stack-badge">Recharts</span>
-        <span class="stack-badge">ExcelJS</span>
-        <span class="stack-badge">PDFKit</span>
-        <span class="stack-badge">Playwright E2E</span>
+    <span class="section-label">Sicherheit &amp; Verlässlichkeit</span>
+    <h2>Ihre Daten gehören Ihnen.<br/>Und nur Ihnen.</h2>
+    <p class="lead">
+      Als Verein tragen Sie Verantwortung für die Daten Ihrer Mitglieder.
+      Schießkladde wurde so gebaut, dass Sie diese Verantwortung vollständig behalten.
+    </p>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <div class="trust-icon">🔒</div>
+        <h3>Keine Cloud</h3>
+        <p>Alle Daten laufen ausschließlich auf der Hardware in Ihrem Verein. Kein externer Anbieter hat Zugriff.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">📡</div>
+        <h3>Kein Internet nötig</h3>
+        <p>Die Software funktioniert komplett ohne Internetverbindung. Auch wenn der Router ausfällt, läuft alles weiter.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">📜</div>
+        <h3>§24 AWaffV erfüllt</h3>
+        <p>Das Schussbuch wird automatisch geführt und ist rechtlich vollständig. Kein Eintrag geht verloren.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🕐</div>
+        <h3>Langfristig nutzbar</h3>
+        <p>Einmal kaufen, dauerhaft nutzen. Kein Abo, das nach einem Jahr teurer wird oder ausläuft.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🛡️</div>
+        <h3>DSGVO-konform</h3>
+        <p>Weil die Daten den Verein nicht verlassen, ist DSGVO-Konformität bauartbedingt einfach zu gewährleisten.</p>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🔧</div>
+        <h3>Kein Abo-Risiko</h3>
+        <p>Kein Anbieter kann Ihnen den Zugang sperren oder die Preise erhöhen. Sie haben die Kontrolle.</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <!-- CI/CD -->
-    <div class="pipeline-wrapper">
-      <p class="pipeline-title">CI/CD Pipeline — GitHub Actions (4 Workflows)</p>
-      <div class="pipeline-flow">
-        <span class="pipeline-step">git push</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-step red">Security Gate</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-step amber">DSGVO Gate</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-step blue">Quality Gate</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-step teal">E2E Tests</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-step purple">GitHub Release</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-step green">Deploy</span>
-      </div>
-      <div class="pipeline-details">
-        <div class="pipeline-detail">
-          <p class="pipeline-detail-label red">Security Gate</p>
-          <p>npm audit (HIGH/CRITICAL), Semgrep SAST, TruffleHog Secret-Scan — blockiert bei Fund</p>
-        </div>
-        <div class="pipeline-detail">
-          <p class="pipeline-detail-label amber">DSGVO Gate</p>
-          <p>Bearer DSGVO-Scan — erkennt PII-Probleme bereits im Code-Review</p>
-        </div>
-        <div class="pipeline-detail">
-          <p class="pipeline-detail-label blue">Quality Gate</p>
-          <p>TypeScript strict, ESLint, Lizenz-Check (blockiert GPL/AGPL), Lighthouse CI</p>
-        </div>
-        <div class="pipeline-detail">
-          <p class="pipeline-detail-label teal">E2E Tests</p>
-          <p>Playwright gegen echte PostgreSQL-Testdatenbank — 150+ Tests, 14 Spec-Dateien</p>
-        </div>
-        <div class="pipeline-detail">
-          <p class="pipeline-detail-label purple">GitHub Release</p>
-          <p>Vorkompiliertes Next.js-Standalone-Bundle als <code>schieskladde.tar.gz</code> — kein Node/npm auf dem Server</p>
-        </div>
-        <div class="pipeline-detail">
-          <p class="pipeline-detail-label green">Deploy</p>
-          <p><code>update.sh</code> lädt Tarball, extrahiert, führt Prisma-Migra­tion aus, startet systemd-Service neu</p>
-        </div>
-      </div>
-    </div>
+<!-- ═══════════════════════════════════════════════════════════
+     7. PREISE
+════════════════════════════════════════════════════════════ -->
+<section class="section" id="preise">
+  <div class="container">
+    <span class="section-label">Preise</span>
+    <h2>Einmal zahlen. Dauerhaft nutzen.</h2>
+    <p class="lead">
+      Kein Abo, keine versteckten Kosten. Wählen Sie, was zu Ihrem Verein passt.
+    </p>
+    <div class="pricing-grid">
 
-    <!-- Deployment Architektur -->
-    <p style="font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:1rem;">Deployment-Architektur</p>
-    <div class="deploy-grid">
-      <div class="deploy-card">
-        <h4>Laufzeitumgebung</h4>
-        <p>Proxmox LXC (Debian 12)<br/>kein Docker, kein Kubernetes</p>
+      <div class="pricing-card">
+        <h3>Software</h3>
+        <p class="pricing-desc">Für Vereine, die eigene Hardware haben oder selbst einrichten können.</p>
+        <div class="pricing-price">299 <span>€ einmalig</span></div>
+        <p class="pricing-note">zzgl. MwSt. · Einmalzahlung · keine Folgekosten</p>
+        <ul class="pricing-list">
+          <li>Vollständige Software-Lizenz</li>
+          <li>Schussbuch automatisch geführt</li>
+          <li>Unbegrenzte Schützen &amp; Stände</li>
+          <li>Updates im ersten Jahr inklusive</li>
+          <li>Einrichtungsanleitung</li>
+        </ul>
+        <a href="#demo" class="pricing-cta pricing-cta-outline">Demo anfragen</a>
       </div>
-      <div class="deploy-card">
-        <h4>Ressourcen</h4>
-        <p>2 CPU-Cores · 1 GB RAM · 8 GB Disk<br/>läuft auf Standard-Vereinshardware</p>
+
+      <div class="pricing-card featured">
+        <div class="pricing-badge">Empfohlen</div>
+        <h3>Schießkladde-Box</h3>
+        <p class="pricing-desc">Software + fertig konfigurierter Mini-PC. Anschließen und sofort loslegen.</p>
+        <div class="pricing-price">599 <span>€ einmalig</span></div>
+        <p class="pricing-note">zzgl. MwSt. · Einmalzahlung · keine Folgekosten</p>
+        <ul class="pricing-list">
+          <li>Alles aus dem Software-Paket</li>
+          <li>Fertig konfigurierter Mini-PC</li>
+          <li>Kein IT-Wissen nötig</li>
+          <li>Anschlussfertig geliefert</li>
+          <li>2 Jahre Updates inklusive</li>
+          <li>Einrichtung per Fernwartung</li>
+        </ul>
+        <a href="#demo" class="pricing-cta pricing-cta-primary">Jetzt anfragen</a>
       </div>
-      <div class="deploy-card">
-        <h4>Prozess-Manager</h4>
-        <p>systemd-Service<br/>Autostart, Crash-Restart, Logging via journalctl</p>
+
+      <div class="pricing-card">
+        <h3>Update-Pflege</h3>
+        <p class="pricing-desc">Für Vereine, die langfristig auf dem neuesten Stand bleiben möchten.</p>
+        <div class="pricing-price">79 <span>€ / Jahr</span></div>
+        <p class="pricing-note">zzgl. MwSt. · jährlich kündbar</p>
+        <ul class="pricing-list">
+          <li>Alle Software-Updates</li>
+          <li>Neue Funktionen inklusive</li>
+          <li>Sicherheitsupdates</li>
+          <li>E-Mail-Support</li>
+        </ul>
+        <a href="#demo" class="pricing-cta pricing-cta-outline">Mehr erfahren</a>
       </div>
-      <div class="deploy-card">
-        <h4>Netzwerk</h4>
-        <p>VLAN-isoliert<br/>kein Internet-Exposure, nur im Vereinsnetz erreichbar</p>
-      </div>
-      <div class="deploy-card">
-        <h4>Datenbank</h4>
-        <p>PostgreSQL lokal<br/>Prisma 7 mit WASM-Engine + pg-Adapter</p>
-      </div>
-      <div class="deploy-card">
-        <h4>Updates</h4>
-        <p>Ein Script-Aufruf<br/><code>bash /opt/schiesskladde/update.sh</code></p>
-      </div>
-      <div class="deploy-card">
-        <h4>Self-Hosting</h4>
-        <p>Vollständige Anleitung: <code>create-lxc.sh</code> → <code>setup-lxc.sh</code> — vom Proxmox-Host bis zur laufenden App in Minuten</p>
-      </div>
+
     </div>
+    <p style="margin-top:1.5rem; font-size:0.85rem; color:var(--text-muted); text-align:center;">
+      Alle Preise sind Richtwerte. Sprechen Sie uns an — wir finden gemeinsam die passende Lösung für Ihren Verein.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     8. FINALER CTA
+════════════════════════════════════════════════════════════ -->
+<section class="final-cta" id="demo">
+  <div class="container-narrow">
+    <h2>Bereit, den Papierkram hinter sich zu lassen?</h2>
+    <p class="lead">
+      Wir zeigen Ihnen in 30 Minuten, wie Schießkladde in Ihrem Verein funktioniert.
+      Unverbindlich, ohne Zeitdruck.
+    </p>
+    <div class="final-actions">
+      <a href="mailto:info@schiesstandde.de" class="btn btn-primary btn-lg">Demo anfragen</a>
+      <a href="mailto:info@schiesstandde.de" class="btn btn-outline btn-lg">Frage stellen</a>
+    </div>
+    <p style="margin-top:1.5rem; font-size:0.9rem; color:rgba(255,255,255,.6);">
+      Antwort innerhalb von 1–2 Werktagen. Kein Verkaufsgespräch, wenn Sie keins wollen.
+    </p>
   </div>
 </section>
 
 <!-- FOOTER -->
-<footer id="kontakt">
-  <div class="footer-logo">⊕ Schießkladde</div>
-  <p>Ein privates Projekt für Schützenvereine in Deutschland.</p>
-  <p>Interesse? Fragen? Kontakt über <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>.</p>
+<footer>
+  <p style="font-size:1rem; font-weight:700; color:rgba(255,255,255,.85); margin-bottom:0.75rem;">Schießkladde</p>
+  <p>Ein Projekt für Schützenvereine in Deutschland.</p>
+  <p><a href="mailto:info@schiesstandde.de">info@schiesstandde.de</a></p>
   <hr class="footer-divider" />
-  <p style="font-size:.8rem;">Kein kommerzielles Produkt · Kein Support-Versprechen · Code nicht öffentlich</p>
+  <p>Kein kommerzielles Massenprodukt · Entwickelt mit Verständnis für Vereinsalltag</p>
 </footer>
 
 </body>
