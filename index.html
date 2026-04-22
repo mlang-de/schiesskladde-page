@@ -620,8 +620,10 @@
         <h3>Schützenmeister &amp; Vorstand</h3>
         <p>Behalten Sie den Überblick über Belegung, Schussbuch und Ausrüstung — jederzeit und von jedem Gerät im Vereinsnetz.</p>
         <ul class="audience-list">
-          <li>Auswertungen &amp; Excel-Export</li>
+          <li>Auswertungen, Excel- &amp; PDF-Export</li>
+          <li>CSV-Massenimport für Mitglieder</li>
           <li>Benutzerverwaltung mit Rollenrechten</li>
+          <li>Automatische Datenbank-Backups</li>
           <li>Datenschutz &amp; Lösch­protokoll</li>
           <li>Konfigurierbare Aufbewahrungsfristen</li>
         </ul>
@@ -710,6 +712,24 @@
         <p>Kontextsensitive Anleitungen direkt in der App — kein externes Wiki, keine PDF-Bedienungsanleitung nötig.</p>
       </div>
 
+      <div class="feature-card">
+        <div class="feature-icon">📥</div>
+        <h3>CSV-Mitgliederimport</h3>
+        <p>Schützen-Profile per CSV-Upload in Bulk anlegen — mit Duplikat-Erkennung, Vorschau und Import-Bericht.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📤</div>
+        <h3>Täglicher Export</h3>
+        <p>Automatischer CSV- und PDF-Export der Schießkladde — per systemd-Timer (23:55 Uhr) oder manuell aus der Admin-UI.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🗄️</div>
+        <h3>Datenbank-Backup</h3>
+        <p>Automatische PostgreSQL-Backups (täglich + nach jedem neuen Eintrag) mit manuellem Trigger, konfigurierbarer Retention und Restore-Skript.</p>
+      </div>
+
     </div>
   </div>
 </section>
@@ -779,6 +799,7 @@
         <span class="stack-badge">SWR</span>
         <span class="stack-badge">Recharts</span>
         <span class="stack-badge">ExcelJS</span>
+        <span class="stack-badge">PDFKit</span>
         <span class="stack-badge">Playwright E2E</span>
       </div>
     </div>
@@ -816,7 +837,7 @@
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label teal">E2E Tests</p>
-          <p>Playwright gegen echte PostgreSQL-Testdatenbank — 150 Tests, 13 Spec-Dateien</p>
+          <p>Playwright gegen echte PostgreSQL-Testdatenbank — 150+ Tests, 14 Spec-Dateien</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label purple">GitHub Release</p>
@@ -855,6 +876,10 @@
       <div class="deploy-card">
         <h4>Updates</h4>
         <p>Ein Script-Aufruf<br/><code>bash /opt/schiesskladde/update.sh</code></p>
+      </div>
+      <div class="deploy-card">
+        <h4>Self-Hosting</h4>
+        <p>Vollständige Anleitung: <code>create-lxc.sh</code> → <code>setup-lxc.sh</code> — vom Proxmox-Host bis zur laufenden App in Minuten</p>
       </div>
     </div>
   </div>
