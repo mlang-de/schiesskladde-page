@@ -1,6 +1,6 @@
-# Schießkladde – Projektseite
+﻿# StandLotse – Projektseite
 
-Dieses Repository enthält die öffentliche Landing Page für **Schießkladde**, eine Web-App zur digitalen Standaufsicht in Schützenvereinen.
+Dieses Repository enthält die öffentliche Landing Page für **StandLotse – Belegung, Leihgeräte und Schießkladde**, eine Web-App zur digitalen Standaufsicht in Schützenvereinen.
 
 Der Quellcode der App ist in einem separaten, privaten Repository.
 
