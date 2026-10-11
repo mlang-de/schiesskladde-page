@@ -775,7 +775,6 @@
         <span class="stack-badge">PostgreSQL</span>
         <span class="stack-badge">next-auth v5</span>
         <span class="stack-badge">Zod 4</span>
-        <span class="stack-badge">React Hook Form</span>
         <span class="stack-badge">SWR</span>
         <span class="stack-badge">Recharts</span>
         <span class="stack-badge">ExcelJS</span>
@@ -804,7 +803,7 @@
       <div class="pipeline-details">
         <div class="pipeline-detail">
           <p class="pipeline-detail-label red">Security Gate</p>
-          <p>npm audit (HIGH/CRITICAL), Semgrep SAST, TruffleHog Secret-Scan — blockiert bei Fund</p>
+          <p>npm audit der Produktions-Abhängigkeiten (HIGH/CRITICAL), Semgrep SAST, TruffleHog Secret-Scan — blockiert bei Fund</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label amber">DSGVO Gate</p>
@@ -812,19 +811,19 @@
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label blue">Quality Gate</p>
-          <p>TypeScript strict, ESLint, Lizenz-Check (blockiert GPL/AGPL), Lighthouse CI</p>
+          <p>TypeScript strict, ESLint, Unit-Tests mit Mindestabdeckung, Lizenz-Check (blockiert GPL/AGPL) — bei jedem Pull Request</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label teal">E2E Tests</p>
-          <p>Playwright gegen echte PostgreSQL-Testdatenbank — 150 Tests, 13 Spec-Dateien</p>
+          <p>Playwright gegen echte PostgreSQL-Testdatenbank — über 200 Tests inkl. Berechtigungen je Rolle und rechtlicher Invarianten; das getestete Paket wird unverändert ausgeliefert</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label purple">GitHub Release</p>
-          <p>Vorkompiliertes Next.js-Standalone-Bundle als <code>schieskladde.tar.gz</code> — kein Node/npm auf dem Server</p>
+          <p>Vorkompiliertes Next.js-Standalone-Bundle als <code>standlotse.tar.gz</code> — kein Build auf dem Server</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label green">Deploy</p>
-          <p><code>update.sh</code> lädt Tarball, extrahiert, führt Prisma-Migra­tion aus, startet systemd-Service neu</p>
+          <p><code>update.sh</code> lädt Tarball, sichert die Datenbank, spielt versionierte Migrationen ein, startet den Service und prüft ihn per Health-Check — bei Fehler automatischer Rollback</p>
         </div>
       </div>
     </div>
