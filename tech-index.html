@@ -703,6 +703,21 @@
         <h3>Statistiken &amp; Export</h3>
         <p>Auslastungsanalysen, Belegungsgrafiken, Schussbuch als Excel-Datei exportierbar.</p>
       </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Mitglieder-Import</h3>
+        <p>Mitgliederliste der Verbandsverwaltung als Excel oder CSV — Abgleich über die Mitgliedsnummer, Vorschau mit neu / aktualisieren / Konflikt, Namen werden nie überschrieben.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3>Backup außer Haus</h3>
+        <p>Eigener Backup-Container holt die Datenbank über ein internes Netz nur lesend ab, verschlüsselt mit age und lädt per rclone hoch (SharePoint, S3, Nextcloud …) — gestaffelt bis 6 Jahre, wöchentlicher Wiederherstellungstest.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💾</div>
+        <h3>Installations- &amp; Notfall-Stick</h3>
+        <p>Offizielles Proxmox-ISO plus Einrichtungsskripte: neuer Rechner in einer Sitzung, im Notfall inklusive Wiederherstellung des letzten Backups.</p>
+      </div>
 
       <div class="feature-card">
         <div class="feature-icon">❓</div>
@@ -742,8 +757,8 @@
           <h3>Datenschutz­grundverordnung</h3>
         </div>
         <ul class="compliance-list">
-          <li>Ausschließlich On-Premise — keine Daten verlassen das Vereinsnetz</li>
-          <li>Kein Cloud-Dienst, keine externen Analysetools, kein Tracking</li>
+          <li>Betrieb ausschließlich On-Premise — personenbezogene Daten verlassen das Vereinsnetz nur als verschlüsseltes Backup (optional, Schlüssel beim Verein)</li>
+          <li>Keine externen Analysetools, kein Tracking</li>
           <li>Rollenbasierter Zugriff — Daten nur für berechtigte Benutzer sichtbar</li>
           <li>Passwörter bcrypt-gehasht, keine Klartextspeicherung</li>
           <li>Vollständiges Aktivitätsprotokoll aller Admin- und Aufsichtshandlungen</li>
@@ -768,7 +783,8 @@
       <div class="stack-badges">
         <span class="stack-badge">Next.js 16</span>
         <span class="stack-badge">React 19</span>
-        <span class="stack-badge">TypeScript 5</span>
+        <span class="stack-badge">TypeScript 6</span>
+        <span class="stack-badge">Node.js 24</span>
         <span class="stack-badge">TailwindCSS 4</span>
         <span class="stack-badge">shadcn/ui</span>
         <span class="stack-badge">Prisma 7</span>
@@ -811,7 +827,7 @@
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label blue">Quality Gate</p>
-          <p>TypeScript strict, ESLint, Unit-Tests mit Mindestabdeckung, Lizenz-Check (blockiert GPL/AGPL) — bei jedem Pull Request</p>
+          <p>TypeScript strict, ESLint, Unit-Tests mit Mindestabdeckung, Lizenz-Check (blockiert GPL/AGPL), Tests der Installations- und Backup-Skripte (shellcheck, Backup-Szenarien gegen PostgreSQL 16/17, Stick-Bau mit echtem Proxmox-ISO) — bei jedem Pull Request</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label teal">E2E Tests</p>
@@ -833,7 +849,7 @@
     <div class="deploy-grid">
       <div class="deploy-card">
         <h4>Laufzeitumgebung</h4>
-        <p>Proxmox LXC (Debian 12)<br/>kein Docker, kein Kubernetes</p>
+        <p>Proxmox VE 9, LXC mit Debian 13<br/>Node.js 24 · kein Docker, kein Kubernetes</p>
       </div>
       <div class="deploy-card">
         <h4>Ressourcen</h4>
@@ -852,8 +868,16 @@
         <p>PostgreSQL lokal<br/>Prisma 7 mit WASM-Engine + pg-Adapter</p>
       </div>
       <div class="deploy-card">
+        <h4>Backup-Container</h4>
+        <p>internes Netz (Bridge ohne Netzwerkkarte), nur lesender DB-Zugriff<br/>age-Verschlüsselung, rclone, Status in der App</p>
+      </div>
+      <div class="deploy-card">
+        <h4>Installation &amp; Notfall</h4>
+        <p>USB-Stick: Proxmox-Installer + <code>start.sh</code><br/>Wiederherstellung per <code>recover.sh</code></p>
+      </div>
+      <div class="deploy-card">
         <h4>Updates</h4>
-        <p>Ein Script-Aufruf<br/><code>bash /opt/schiesskladde/update.sh</code></p>
+        <p>Ein Script-Aufruf<br/><code>bash /opt/standlotse/update.sh</code></p>
       </div>
     </div>
   </div>
