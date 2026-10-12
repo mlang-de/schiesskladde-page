@@ -758,6 +758,7 @@
         </div>
         <ul class="compliance-list">
           <li>Betrieb ausschließlich On-Premise — personenbezogene Daten verlassen das Vereinsnetz nur als verschlüsseltes Backup (optional, Schlüssel beim Verein)</li>
+          <li>Verschlüsselte Übertragung (HTTPS) auch im Vereinsnetz – mit eigener, auf die App beschränkter Zertifizierungsstelle</li>
           <li>Keine externen Analysetools, kein Tracking</li>
           <li>Rollenbasierter Zugriff — Daten nur für berechtigte Benutzer sichtbar</li>
           <li>Passwörter bcrypt-gehasht, keine Klartextspeicherung</li>
@@ -835,11 +836,11 @@
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label purple">GitHub Release</p>
-          <p>Vorkompiliertes Next.js-Standalone-Bundle als <code>standlotse.tar.gz</code> — kein Build auf dem Server</p>
+          <p>Versionierte Releases (<code>vX.Y.Z</code>) als vorkompiliertes Next.js-Standalone-Bundle <code>standlotse.tar.gz</code> — kein Build auf dem Server</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label green">Deploy</p>
-          <p><code>update.sh</code> lädt Tarball, sichert die Datenbank, spielt versionierte Migrationen ein, startet den Service und prüft ihn per Health-Check — bei Fehler automatischer Rollback</p>
+          <p><code>update.sh</code> lädt die neueste oder eine gewählte Version, sichert die Datenbank, spielt versionierte Migrationen ein, startet den Service und prüft ihn per Health-Check — bei Fehler automatischer Rollback</p>
         </div>
       </div>
     </div>
