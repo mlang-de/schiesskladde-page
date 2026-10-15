@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StandLotse – Belegung, Leihgeräte und Schießkladde</title>
-  <meta name="description" content="StandLotse ist eine Web-App für die digitale Standaufsicht in Schützenvereinen. AWaffV §24-konform, DSGVO-konform, On-Premise." />
+  <meta name="description" content="StandLotse ist eine Web-App für die digitale Standaufsicht in Schützenvereinen. Manipulationssichere Schießkladde, DSGVO-konform, On-Premise." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -598,7 +598,7 @@
       StandLotse ersetzt Papierkladde und manuelle Bahneinteilung durch eine moderne Web-App — live, rechtskonform und ohne Cloud-Abhängigkeit.
     </p>
     <div class="hero-badges">
-      <span class="badge badge-green">✓ AWaffV §24-konform</span>
+      <span class="badge badge-green">✓ Manipulationssichere Kladde</span>
       <span class="badge badge-blue">✓ DSGVO-konform</span>
       <span class="badge badge-navy">✓ On-Premise</span>
       <span class="badge badge-amber">✓ RFID-fähig</span>
@@ -671,7 +671,7 @@
 
       <div class="feature-card">
         <div class="feature-icon">📋</div>
-        <h3>Schussbuch §24 AWaffV</h3>
+        <h3>Schießkladde</h3>
         <p>Automatische Erstellung bei Bahnenfreigabe. Einträge sind unveränderlich; Stornierung nur mit Begründung und Protokoll.</p>
       </div>
 
@@ -712,7 +712,7 @@
       <div class="feature-card">
         <div class="feature-icon">☁️</div>
         <h3>Backup außer Haus</h3>
-        <p>Eigener Backup-Container holt die Datenbank über ein internes Netz nur lesend ab, verschlüsselt mit age und lädt per rclone hoch (SharePoint, S3, Nextcloud …) — gestaffelt bis 6 Jahre, wöchentlicher Wiederherstellungstest. Zusätzlich nachts die Kladde als PDF je Tag und Jahr (nur Neues und Geändertes, Ordner Jahr/Monat) sowie eine Überwachung von Health-Check und freiem Speicherplatz in App- und Backup-Container mit Mail bei Problemen und Entwarnung.</p>
+        <p>Eigener Backup-Container holt die Datenbank über ein internes Netz nur lesend ab, verschlüsselt mit age und lädt per rclone hoch (SharePoint, S3, Nextcloud …) — gestaffelt bis 3 Jahre, wöchentlicher Wiederherstellungstest. Zusätzlich nachts die Kladde als PDF je Tag und Jahr (nur Neues und Geändertes, Ordner Jahr/Monat) sowie eine Überwachung von Health-Check und freiem Speicherplatz in App- und Backup-Container mit Mail bei Problemen und Entwarnung.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">💾</div>
@@ -740,15 +740,15 @@
 
       <div class="compliance-card awaffv">
         <div class="compliance-heading">
-          <span class="compliance-badge">AWaffV §24</span>
-          <h3>Schusswaffen­rechtliches Schussbuch</h3>
+          <span class="compliance-badge">Kladde</span>
+          <h3>Nachweis der Schieß­aktivität</h3>
         </div>
         <ul class="compliance-list">
           <li>Schussbucheinträge werden automatisch beim Verlassen der Bahn erzeugt</li>
           <li>Keine physische Löschung — nur Stornierung mit Begründung und Benutzerprotokoll</li>
-          <li>Mindestaufbewahrung 5 Jahre (konfigurierbar, nie unterschreitbar)</li>
-          <li>Vollständige Erfassung: Name, Geburtsdatum, Datum, Uhrzeit, Waffe, Kaliber, Bahn</li>
-          <li>Anonymisierung nach konfigurierbarer Frist mit Admin-Bestätigung</li>
+          <li>Aufbewahrung 30 Monate (24 Monate Nachweis der Schießaktivität plus Puffer), danach nächtliche Anonymisierung – die Datenbank lässt sie erst nach Ablauf der Frist zu</li>
+          <li>Vollständige Erfassung: Name, Datum, Uhrzeit, Disziplin bzw. Waffe, Kaliber, Leihwaffen, Bahn, Aufsicht</li>
+          <li>Löschung von Schützendaten nach DSGVO-Frist und Kladde-Frist mit Admin-Bestätigung</li>
         </ul>
       </div>
 
