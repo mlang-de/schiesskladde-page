@@ -6,7 +6,7 @@ Der Quellcode der App ist in einem separaten, privaten Repository.
 
 ## Seite besuchen
 
-👉 [GitHub Pages URL eintragen nach Setup]
+👉 [mlang-de.github.io/schiesskladde-page](https://mlang-de.github.io/schiesskladde-page/)
 
 ## Lokal ansehen
 
