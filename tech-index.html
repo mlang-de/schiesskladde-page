@@ -623,7 +623,7 @@
           <li>Auswertungen &amp; Excel-Export</li>
           <li>Benutzerverwaltung mit Rollenrechten</li>
           <li>Datenschutz &amp; Lösch­protokoll</li>
-          <li>Feste Aufbewahrungsfristen: 30 Monate, für Gäste 24 Monate; danach automatisch anonymisiert oder gelöscht</li>
+          <li>Feste Aufbewahrungsfristen: 24 Monate + einstellbare Karenz (0–6 Monate), für Mitglieder und Gäste gleich; danach automatisch anonymisiert oder gelöscht</li>
         </ul>
       </div>
 
@@ -746,7 +746,7 @@
         <ul class="compliance-list">
           <li>Schussbucheinträge werden automatisch beim Verlassen der Bahn erzeugt</li>
           <li>Keine physische Löschung — nur Stornierung mit Begründung und Benutzerprotokoll</li>
-          <li>Aufbewahrung 30 Monate (24 Monate Nachweis der Schießaktivität plus Puffer), danach nächtliche Anonymisierung – die Datenbank lässt sie erst nach Ablauf der Frist zu</li>
+          <li>Aufbewahrung 24 Monate (Nachweis der Schießaktivität) plus Karenz, danach nächtliche Anonymisierung – die Datenbank prüft die Frist selbst und lässt sie nie vor 24 Monaten zu</li>
           <li>Vollständige Erfassung: Name, Datum, Uhrzeit, Disziplin bzw. Waffe, Kaliber, Leihwaffen, Bahn, Aufsicht</li>
           <li>Automatische Löschung von Schützen- und Gastdaten jede Nacht nach Ablauf der Frist – mit einstellbarer Karenz und „Karenz beenden“ für Löschanträge</li>
         </ul>
@@ -764,7 +764,7 @@
           <li>Rollenbasierter Zugriff — Daten nur für berechtigte Benutzer sichtbar</li>
           <li>Passwörter bcrypt-gehasht, keine Klartextspeicherung</li>
           <li>Vollständiges Aktivitätsprotokoll aller Admin- und Aufsichtshandlungen</li>
-          <li>Aktivitätsprotokoll nach 30 Monaten gelöscht, Server-Protokolle ohne Suchbegriffe (14 bzw. 30 Tage)</li>
+          <li>Aktivitätsprotokoll nach 24 Monaten + Karenz gelöscht, Server-Protokolle ohne Suchbegriffe (14 bzw. 30 Tage)</li>
         </ul>
       </div>
 
