@@ -763,6 +763,8 @@
           <li>Keine externen Analysetools, kein Tracking</li>
           <li>Rollenbasierter Zugriff — Daten nur für berechtigte Benutzer sichtbar</li>
           <li>Passwörter bcrypt-gehasht, keine Klartextspeicherung</li>
+          <li>Anmeldung gegen Durchprobieren geschützt: Sperre je Gerät und je Benutzername</li>
+          <li>App arbeitet mit eingeschränkter Datenbank-Rolle — Kladde-Einträge kann sie weder löschen noch den Kladde-Schutz abschalten</li>
           <li>Vollständiges Aktivitätsprotokoll aller Admin- und Aufsichtshandlungen</li>
           <li>Aktivitätsprotokoll nach 24 Monaten + Karenz gelöscht, Server-Protokolle ohne Suchbegriffe (14 bzw. 30 Tage)</li>
         </ul>
@@ -829,11 +831,11 @@
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label blue">Quality Gate</p>
-          <p>TypeScript strict, ESLint, Unit-Tests mit Mindestabdeckung, Lizenz-Check (blockiert GPL/AGPL), Tests der Installations- und Backup-Skripte (shellcheck, Backup-Szenarien gegen PostgreSQL 16/17, Stick-Bau mit echtem Proxmox-ISO) — bei jedem Pull Request</p>
+          <p>TypeScript strict, ESLint, Unit-Tests mit Mindestabdeckung, Integrationstests gegen echtes PostgreSQL mit Kladde-Schutz, Prüfung des Update-Pfads von der letzten Version, Lizenz-Check (blockiert GPL/AGPL), Tests der Installations- und Backup-Skripte (shellcheck, Backup-Szenarien gegen PostgreSQL 16/17, Stick-Bau mit echtem Proxmox-ISO) — bei jedem Pull Request</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label teal">E2E Tests</p>
-          <p>Playwright gegen echte PostgreSQL-Testdatenbank — über 200 Tests inkl. Berechtigungen je Rolle und rechtlicher Invarianten; das getestete Paket wird unverändert ausgeliefert</p>
+          <p>Playwright gegen echte PostgreSQL-Testdatenbank — über 500 Tests inkl. Berechtigungen je Rolle, kompletter Standabende und rechtlicher Invarianten; das getestete Paket wird unverändert ausgeliefert</p>
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label purple">GitHub Release</p>
