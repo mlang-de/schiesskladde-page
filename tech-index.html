@@ -843,7 +843,7 @@
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label green">Deploy</p>
-          <p><code>update.sh</code> lädt die neueste oder eine gewählte Version, sichert die Datenbank, spielt versionierte Migrationen ein, startet den Service und prüft ihn per Health-Check — bei Fehler automatischer Rollback</p>
+          <p><code>update.sh</code> lädt die neueste oder eine gewählte Version, sichert die Datenbank, spielt versionierte Migrationen ein, startet den Service und prüft ihn per Health-Check — bei Fehler automatischer Rollback. Ohne Internet: signiertes Paket per USB-Stick (<code>stick-update.sh</code> auf dem Proxmox-Host, auslösbar auch aus der Oberfläche; Signaturprüfung Pflicht, Stick nur lesend)</p>
         </div>
       </div>
     </div>
@@ -881,7 +881,7 @@
       </div>
       <div class="deploy-card">
         <h4>Updates</h4>
-        <p>Ein Script-Aufruf<br/><code>bash /opt/standlotse/update.sh</code></p>
+        <p>Ein Script-Aufruf<br/><code>bash /opt/standlotse/update.sh</code><br/>oder offline vom USB-Stick (ab 0.13.0)</p>
       </div>
     </div>
   </div>
