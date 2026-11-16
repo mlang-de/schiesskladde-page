@@ -746,7 +746,8 @@
         <ul class="compliance-list">
           <li>Schussbucheinträge werden automatisch beim Verlassen der Bahn erzeugt</li>
           <li>Keine physische Löschung — nur Stornierung mit Begründung und Benutzerprotokoll</li>
-          <li>Aufbewahrung 24 Monate (Nachweis der Schießaktivität) plus Karenz, danach nächtliche Anonymisierung – die Datenbank prüft die Frist selbst und lässt sie nie vor 24 Monaten zu</li>
+          <li>Aufbewahrung 24 Monate (Nachweis der Schießaktivität) plus Karenz, danach nächtliche Anonymisierung – die Datenbank prüft die Frist selbst und lässt sie nie vor 24 Monaten zu; Uhrzeit-Schutz pausiert den Lauf bei unplausibler Serveruhr, dazu 45 Tage Sicherheitspuffer</li>
+          <li>Notbetrieb auf Papier mit Vorlage aus der App, falls der Server ausfällt</li>
           <li>Vollständige Erfassung: Name, Datum, Uhrzeit, Disziplin bzw. Waffe, Kaliber, Leihwaffen, Bahn, Aufsicht</li>
           <li>Automatische Löschung von Schützen- und Gastdaten jede Nacht nach Ablauf der Frist – mit einstellbarer Karenz und „Karenz beenden“ für Löschanträge</li>
         </ul>
@@ -765,7 +766,7 @@
           <li>Passwörter bcrypt-gehasht, keine Klartextspeicherung</li>
           <li>Anmeldung gegen Durchprobieren geschützt: Sperre je Gerät und je Benutzername</li>
           <li>App arbeitet mit eingeschränkter Datenbank-Rolle — Kladde-Einträge kann sie weder löschen noch den Kladde-Schutz abschalten</li>
-          <li>Vollständiges Aktivitätsprotokoll aller Admin- und Aufsichtshandlungen</li>
+          <li>Vollständiges Aktivitätsprotokoll aller Admin- und Aufsichtshandlungen, auch geänderter Mitglieder-Angaben (nur welche Felder, keine Werte)</li>
           <li>Aktivitätsprotokoll nach 24 Monaten + Karenz gelöscht, Server-Protokolle ohne Suchbegriffe (14 bzw. 30 Tage)</li>
         </ul>
       </div>
@@ -843,7 +844,7 @@
         </div>
         <div class="pipeline-detail">
           <p class="pipeline-detail-label green">Deploy</p>
-          <p><code>update.sh</code> lädt die neueste oder eine gewählte Version, sichert die Datenbank, spielt versionierte Migrationen ein, startet den Service und prüft ihn per Health-Check — bei Fehler automatischer Rollback. Ohne Internet: signiertes Paket per USB-Stick (<code>stick-update.sh</code> auf dem Proxmox-Host, auslösbar auch aus der Oberfläche; Signaturprüfung Pflicht, Stick nur lesend)</p>
+          <p><code>update.sh</code> lädt die neueste oder eine gewählte Version, sichert die Datenbank, spielt versionierte Migrationen ein, startet den Service und prüft ihn per Health-Check — bei Fehler automatischer Rücksprung von App und Datenbank (nur, wenn die Kladde seit dem Backup unverändert ist). Rückfrage bei belegten Ständen, Programmverzeichnis root-eigen, gehärteter systemd-Dienst. Sicherheitsupdates: Backup-Container täglich automatisch, Host und App-Container in einer geführten Wartung (Internet nur kurz frei). Ohne Internet: signiertes Paket per USB-Stick (<code>stick-update.sh</code> auf dem Proxmox-Host, auslösbar auch aus der Oberfläche; Signaturprüfung Pflicht, Stick nur lesend)</p>
         </div>
       </div>
     </div>
