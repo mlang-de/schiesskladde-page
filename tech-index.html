@@ -712,7 +712,7 @@
       <div class="feature-card">
         <div class="feature-icon">☁️</div>
         <h3>Backup außer Haus</h3>
-        <p>Eigener Backup-Container holt die Datenbank über ein internes Netz nur lesend ab, verschlüsselt mit age und lädt per rclone hoch (SharePoint, S3, Nextcloud …) — gestaffelt bis 12 Monate (ohne Jahres-Backups), wöchentlicher Wiederherstellungstest. Zusätzlich nachts die Kladde als PDF je Tag (nur Neues und Geändertes, Ordner Jahr/Monat, nach 24 Monaten automatisch gelöscht) sowie eine Überwachung von Health-Check und freiem Speicherplatz in App- und Backup-Container mit Mail bei Problemen und Entwarnung.</p>
+        <p>Eigener Backup-Container holt die Datenbank über ein internes Netz nur lesend ab, verschlüsselt mit age und lädt per rclone hoch (SharePoint, S3, Nextcloud …) — gestaffelt bis 12 Monate (ohne Jahres-Backups), wöchentlicher Wiederherstellungstest. Zusätzlich nachts die Kladde als PDF je Tag (nur Neues und Geändertes, Ordner Jahr/Monat, nach 24 Monaten automatisch gelöscht) sowie eine Überwachung von Health-Check und freiem Speicherplatz in App- und Backup-Container mit Mail bei Problemen und Entwarnung. Ab 0.16.0 läuft alles in einem Nachtlauf um 00:05 Uhr mit Bericht per Mail; die App hat kein Internet und legt eigene Mails (Testmail, Defektmeldung, Kladde-Auszug) in einen Postausgang, den der Backup-Container per Token abholt und über SMTP oder Microsoft Graph versendet.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">💾</div>
@@ -875,7 +875,7 @@
       </div>
       <div class="deploy-card">
         <h4>Backup-Container</h4>
-        <p>internes Netz (Bridge ohne Netzwerkkarte), nur lesender DB-Zugriff<br/>age-Verschlüsselung, rclone, Status in der App</p>
+        <p>internes Netz (Bridge ohne Netzwerkkarte), nur lesender DB-Zugriff<br/>age-Verschlüsselung, rclone, Status in der App<br/>Nachtlauf 00:05 Uhr, E-Mail-Postausgang der App</p>
       </div>
       <div class="deploy-card">
         <h4>Installation &amp; Notfall</h4>
