@@ -634,7 +634,7 @@
         <ul class="audience-list">
           <li>Echtzeit-Dashboard aller Bahnen</li>
           <li>Schützensuche in Sekunden</li>
-          <li>Gäste beim Belegen erfassen, Stammgäste wiederfinden</li>
+          <li>Gäste beim Belegen erfassen, Stammgäste über ihre Gastnummer wiederfinden; Rückfrage, wenn ein „Gast“ schon Mitglied ist</li>
           <li>Ausrüstungsverleih mit einem Klick</li>
           <li>RFID-Selbst-Check-out für erfahrene Mitglieder</li>
         </ul>
@@ -707,7 +707,7 @@
       <div class="feature-card">
         <div class="feature-icon">👥</div>
         <h3>Mitglieder-Import</h3>
-        <p>Mitgliederliste der Verbandsverwaltung als Excel oder CSV — Abgleich über die Mitgliedsnummer, Vorschau mit neu / aktualisieren / Konflikt, Namen werden nie überschrieben.</p>
+        <p>Mitgliederliste der Verbandsverwaltung als Excel oder CSV — Abgleich über die Mitgliedsnummer, Vorschau mit neu / aktualisieren / Konflikt, Namen werden nie überschrieben. Den Leihgeräte-Katalog gibt es ebenso per Excel oder CSV mit Vorlage.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">☁️</div>
@@ -765,6 +765,7 @@
           <li>Rollenbasierter Zugriff — Daten nur für berechtigte Benutzer sichtbar</li>
           <li>Passwörter bcrypt-gehasht, keine Klartextspeicherung</li>
           <li>Anmeldung gegen Durchprobieren geschützt: Sperre je Gerät und je Benutzername</li>
+          <li>Konten mit gemeinsamem Startpasswort müssen bei der ersten Anmeldung ein eigenes setzen</li>
           <li>App arbeitet mit eingeschränkter Datenbank-Rolle — Kladde-Einträge kann sie weder löschen noch den Kladde-Schutz abschalten</li>
           <li>Vollständiges Aktivitätsprotokoll aller Admin- und Aufsichtshandlungen, auch geänderter Mitglieder-Angaben (nur welche Felder, keine Werte)</li>
           <li>Aktivitätsprotokoll nach 24 Monaten + Karenz gelöscht, Server-Protokolle ohne Suchbegriffe (14 bzw. 30 Tage)</li>
