@@ -748,7 +748,10 @@
           <li>Schussbucheinträge werden automatisch beim Verlassen der Bahn erzeugt</li>
           <li>Keine physische Löschung — nur Stornierung mit Begründung und Benutzerprotokoll</li>
           <li>Aufbewahrung 24 Monate (Nachweis der Schießaktivität) plus Karenz, danach nächtliche Anonymisierung – die Datenbank prüft die Frist selbst und lässt sie nie vor 24 Monaten zu; Uhrzeit-Schutz pausiert den Lauf bei unplausibler Serveruhr, dazu 45 Tage Sicherheitspuffer</li>
-          <li>Notbetrieb auf Papier mit Vorlage aus der App, falls der Server ausfällt</li>
+          <li>Berichtigung mit Verlauf (ab 0.18.0): angehängt statt überschrieben, nur Super-Administrator, bis 3 Monate nach dem Kladde-Tag, nie Schütze oder Datum, nie eigene Einträge – geprüft von der Datenbank; jede Berichtigung geht per Mail an den Vorstand</li>
+          <li>Notbetrieb auf Papier mit Vorlage aus der App, falls der Server ausfällt; ab 0.18.0 gekennzeichnet nachtragbar (höchstens 14 Tage zurück, zweite Person bestätigt, Kasse einzeln)</li>
+          <li>Belegungen beginnen „jetzt“ – rückdatieren lehnt die Datenbank ab; die Aufsicht korrigiert Waffe oder Disziplin nur in den ersten Minuten (ab 0.18.0)</li>
+          <li>Bedürfnisnachweis als PDF je Mitglied für Vorstand und Admin: Termine je Waffenkategorie nach § 14 WaffG (ab 0.18.0)</li>
           <li>Jugend beim Belegen nach § 27 WaffG: Mindestalter und „Obhut bis“ je Waffe, Alter am Schießtag aus dem Geburtsdatum; Vermerk der bestätigten Punkte ohne Namen, im Kladde-Schutz unveränderlich (ab 0.16.1)</li>
           <li>Bis zu drei Schützen je Stand, jeder mit eigenem Kladde-Eintrag (ab 0.16.1)</li>
           <li>Kassenbuch light: Verkauf und Standgebühr am Stand mit fortlaufender Nummer, in der Datenbank gegen Ändern und Löschen geschützt (nur Storno mit Begründung); Käufer getrennt gespeichert und nach 24 Monaten + Karenz anonymisiert, Kassenbuch ohne Namen 10 Jahre (ab 0.17.0)</li>
