@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>StandLotse – Belegung, Leihgeräte und Schießkladde</title>
   <meta name="description" content="Digitale Standbelegung für Schützenvereine. Läuft komplett im Vereinsnetzwerk. Keine Datenweitergabe, Backups nur verschlüsselt. Einfach zu bedienen." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22 fill=%22none%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2212%22 fill=%22%231e293b%22/%3E%3Cg transform=%22translate(9.6 9.6) scale(0.7)%22%3E%3Cg transform=%22translate(5 0) skewX(-12)%22%3E%3Cpath d=%22M6 51 H35 A8.5 8.5 0 0 0 35 34 H24 A8.5 8.5 0 0 1 24 17 H37%22 stroke=%22%23f8fafc%22 stroke-width=%2213%22/%3E%3Cpath d=%22M16 51 H35 A8.5 8.5 0 0 0 35 34 H24 A8.5 8.5 0 0 1 24 17 H33%22 stroke=%22%23facc15%22 stroke-width=%222.8%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/%3E%3C/g%3E%3Ccircle cx=%2251%22 cy=%2212%22 r=%229.5%22 stroke=%22%23f8fafc%22 stroke-width=%223.8%22/%3E%3Ccircle cx=%2251%22 cy=%2212%22 r=%223.6%22 fill=%22%23facc15%22/%3E%3C/g%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -152,7 +153,7 @@
       padding: 5.5rem 1.5rem 5rem;
     }
 
-    .hero-inner { max-width: 840px; }
+    .hero-inner { max-width: 840px; margin: 0 auto; }
 
     .hero-eyebrow {
       display: inline-flex;
@@ -275,6 +276,8 @@
     .solution-step p  { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
 
     /* ─── VERGLEICH ─── */
+    .compare-scroll { overflow-x: auto; }
+
     .compare-table {
       width: 100%;
       border-collapse: collapse;
@@ -310,56 +313,7 @@
     .check-yes { color: var(--green); font-weight: 700; }
     .check-no  { color: #c00; font-weight: 700; }
 
-    /* ─── BOX ─── */
-    .box-steps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      align-items: center;
-      margin: 2rem 0;
-    }
-
-    .box-step {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--bg);
-      border: 1.5px solid var(--border);
-      border-radius: 10px;
-      padding: 0.75rem 1.25rem;
-      box-shadow: var(--shadow);
-    }
-
-    .box-step-num {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--navy);
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .box-step span { font-size: 0.92rem; font-weight: 600; color: var(--navy); }
-    .box-arrow     { color: var(--text-muted); font-size: 1.1rem; }
-
-    .box-highlight {
-      background: var(--green-light);
-      border: 1.5px solid #a7f3d0;
-      border-radius: var(--radius);
-      padding: 1.5rem 2rem;
-      margin-top: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .box-highlight p { font-size: 0.95rem; color: var(--green); font-weight: 600; line-height: 1.5; }
-
+    /* ─── FUNKTIONEN ─── */
     .box-extras {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -523,7 +477,7 @@
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <span class="nav-logo-icon">SL</span>
+      <span class="nav-logo-icon" aria-hidden="true"><svg viewBox="0 0 64 64" width="24" height="24" fill="none"><g transform="translate(5 0) skewX(-12)"><path d="M6 51 H35 A8.5 8.5 0 0 0 35 34 H24 A8.5 8.5 0 0 1 24 17 H37" stroke="#f8fafc" stroke-width="13"/><path d="M16 51 H35 A8.5 8.5 0 0 0 35 34 H24 A8.5 8.5 0 0 1 24 17 H33" stroke="#facc15" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></g><circle cx="51" cy="12" r="9.5" stroke="#f8fafc" stroke-width="3.8"/><circle cx="51" cy="12" r="3.6" fill="#facc15"/></svg></span>
       StandLotse
     </a>
     <a href="#demo" class="nav-cta">Demo anfragen</a>
@@ -539,7 +493,7 @@
     <h1>Die digitale Standaufsicht,<br/>die im Verein bleibt.</h1>
     <p class="hero-sub">
       Sehen Sie jederzeit, welcher Stand frei ist — ohne Papierliste, ohne Cloud, ohne Datenweitergabe.
-      Einfach anschließen und loslegen.
+      Läuft auf eigener Hardware im Vereinsnetz.
     </p>
     <ul class="hero-bullets">
       <li>Alle Ihre Daten bleiben im Vereinsnetzwerk — kein Zugriff von außen.</li>
@@ -646,6 +600,7 @@
       Die meisten sind Cloud-basiert und bündeln vieles: Mitgliederverwaltung, Turnierverwaltung, Chat, Buchungen.
       StandLotse macht genau eine Sache: Live-Standbelegung und Schussbuch — lokal, ohne Abo-Zwang.
     </p>
+    <div class="compare-scroll">
     <table class="compare-table">
       <thead>
         <tr>
@@ -692,43 +647,17 @@
         </tr>
       </tbody>
     </table>
+    </div>
   </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════
-     5. PRODUKT — DIE BOX
+     5. FUNKTIONEN
 ════════════════════════════════════════════════════════════ -->
 <section class="section" id="produkt">
   <div class="container-narrow">
-    <span class="section-label">Plug &amp; Play</span>
-    <h2>Die StandLotse-Box.<br/>Einmal anschließen, fertig.</h2>
-    <p class="lead">
-      Die Box kommt fertig konfiguriert. Ins Vereinsnetzwerk einstecken, Browser öffnen, loslegen.
-      Für maximale Datenisolation empfehlen wir ein eigenes VLAN — dabei helfen wir.
-    </p>
-    <div class="box-steps">
-      <div class="box-step">
-        <div class="box-step-num">1</div>
-        <span>Strom anschließen</span>
-      </div>
-      <div class="box-arrow">→</div>
-      <div class="box-step">
-        <div class="box-step-num">2</div>
-        <span>Netzwerkkabel einstecken</span>
-      </div>
-      <div class="box-arrow">→</div>
-      <div class="box-step">
-        <div class="box-step-num">3</div>
-        <span>Browser öffnen, loslegen</span>
-      </div>
-    </div>
-    <div class="box-highlight">
-      <span style="font-size:1.75rem; flex-shrink:0;">✅</span>
-      <p>
-        Grundlegende Netzwerkkenntnisse genügen.<br/>
-        Wir richten alles vor und begleiten Sie bei der Einrichtung.
-      </p>
-    </div>
+    <span class="section-label">Funktionen</span>
+    <h2>Was alles dazugehört.</h2>
     <div class="box-extras">
       <div class="box-extra">
         <div class="box-extra-title">Tablet als Anzeige</div>
@@ -867,21 +796,18 @@
         <a href="#demo" class="pricing-cta pricing-cta-outline">Demo anfragen</a>
       </div>
 
-      <div class="pricing-card featured">
-        <div class="pricing-badge">Empfohlen</div>
-        <h3>StandLotse-Box</h3>
-        <p class="pricing-desc">Software + fertig konfigurierter Mini-PC. Anschließen und sofort loslegen.</p>
-        <div class="pricing-price">599 <span>€ einmalig</span></div>
-        <p class="pricing-note">zzgl. MwSt. · Einmalzahlung · keine Folgekosten</p>
+      <div class="pricing-card">
+        <h3>Supportstunden</h3>
+        <p class="pricing-desc">Hilfe bei Einrichtung, Updates, Backup oder Fragen aus dem Vereinsalltag – per Telefon oder Fernwartung.</p>
+        <div class="pricing-price">auf Anfrage</div>
+        <p class="pricing-note">zzgl. MwSt. · nach Aufwand · ohne Vertragsbindung</p>
         <ul class="pricing-list">
-          <li>Alles aus dem Software-Paket</li>
-          <li>Fertig konfigurierter Mini-PC</li>
-          <li>Kein IT-Wissen nötig</li>
-          <li>Anschlussfertig geliefert</li>
-          <li>2 Jahre Updates inklusive</li>
-          <li>Einrichtung per Fernwartung</li>
+          <li>Einrichtung auf eigener Hardware</li>
+          <li>Backup außer Haus und E-Mail einrichten</li>
+          <li>Hilfe bei Updates</li>
+          <li>Einweisung von Vorstand und Aufsichten</li>
         </ul>
-        <a href="#demo" class="pricing-cta pricing-cta-primary">Jetzt anfragen</a>
+        <a href="#demo" class="pricing-cta pricing-cta-outline">Anfragen</a>
       </div>
 
       <div class="pricing-card">
