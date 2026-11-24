@@ -753,7 +753,7 @@
           <li>Belegungen beginnen „jetzt“ – rückdatieren lehnt die Datenbank ab; die Aufsicht korrigiert Waffe oder Disziplin nur in den ersten Minuten (ab 0.18.0)</li>
           <li>Bedürfnisnachweis als PDF je Mitglied für Vorstand und Admin: Termine je Waffenkategorie nach § 14 WaffG (ab 0.18.0)</li>
           <li>Jugend beim Belegen nach § 27 WaffG: Mindestalter und „Obhut bis“ je Waffe, Alter am Schießtag aus dem Geburtsdatum; Vermerk der bestätigten Punkte ohne Namen, im Kladde-Schutz unveränderlich (ab 0.16.1)</li>
-          <li>Kassenbuch light: Verkauf und Standgebühr am Stand mit fortlaufender Nummer, in der Datenbank gegen Ändern und Löschen geschützt (nur Storno mit Begründung); Käufer getrennt gespeichert und nach 24 Monaten + Karenz anonymisiert, Kassenbuch ohne Namen 10 Jahre (ab 0.17.0)</li>
+          <li>Kassenbuch light: Verkauf und Standgebühr am Stand mit fortlaufender Nummer, in der Datenbank gegen Ändern und Löschen geschützt (nur Storno mit Begründung); Käufer getrennt gespeichert und nach 24 Monaten + Karenz anonymisiert, Kassenbuch ohne Namen 10 Jahre (ab 0.17.0); ab 0.20.0 sofort bar kassiert (sonst Vermerk „Nicht bezahlt“), Jugendpreise und Standpauschale mit „gültig bis“</li>
           <li>Vollständige Erfassung: Name, Datum, Uhrzeit, Waffe und Kaliber (je Standtyp vorgeschlagen, Disziplin als freier Text, freiwillig), Leihwaffen, Bahn, Aufsicht</li>
           <li>Automatische Löschung von Schützen- und Gastdaten jede Nacht nach Ablauf der Frist – mit einstellbarer Karenz und „Karenz beenden“ für Löschanträge</li>
         </ul>
@@ -886,6 +886,10 @@
       <div class="deploy-card">
         <h4>Installation &amp; Notfall</h4>
         <p>USB-Stick: Proxmox-Installer + <code>start.sh</code><br/>Wiederherstellung per <code>recover.sh</code></p>
+      </div>
+      <div class="deploy-card">
+        <h4>Konfiguration übertragen</h4>
+        <p>Export/Import als eine Datei (ab 0.20.0)<br/>Einstellungen, Stände, Waffen, Rollen, Preise, Leihgeräte<br/>ohne Personendaten, Import nur in eine frische Installation</p>
       </div>
       <div class="deploy-card">
         <h4>Updates</h4>
