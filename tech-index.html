@@ -692,7 +692,7 @@
       <div class="feature-card">
         <div class="feature-icon">📶</div>
         <h3>RFID-Check-in/out</h3>
-        <p>Schütze hält Karte ans Lesegerät → Training wird beendet, die Bahn ist frei. Keine Aufsicht nötig für den Abmeldevorgang.</p>
+        <p>Schütze hält Karte ans Lesegerät → Training wird beendet, die Bahn ist frei. Keine Aufsicht nötig für den Abmeldevorgang. Ab 0.23.0 melden sich bestellte Standaufsichten mit Karte an – nur an Geräten, die der Vorstand freigeschaltet hat, mit Sperre nach Untätigkeit.</p>
       </div>
 
       <div class="feature-card">
@@ -783,6 +783,7 @@
           <li>Rollenbasierter Zugriff — Daten nur für berechtigte Benutzer sichtbar</li>
           <li>Passwörter bcrypt-gehasht, keine Klartextspeicherung</li>
           <li>Anmeldung gegen Durchprobieren geschützt: Sperre je Gerät und je Benutzername</li>
+          <li>Je Konto nur eine Anmeldung gleichzeitig (die neueste gewinnt, Ausnahme je Rolle); Kartenanmeldung nur an freigeschalteten Geräten (Geräte-Geheimnis im Cookie, nur als Hash gespeichert), das gesperrte Gerät erreicht nur die Standübersicht</li>
           <li>Konten mit gemeinsamem Startpasswort müssen bei der ersten Anmeldung ein eigenes setzen</li>
           <li>App arbeitet mit eingeschränkter Datenbank-Rolle — Kladde-Einträge kann sie weder löschen noch den Kladde-Schutz abschalten</li>
           <li>Vollständiges Aktivitätsprotokoll aller Admin- und Aufsichtshandlungen, auch geänderter Mitglieder-Angaben (nur welche Felder, keine Werte)</li>
